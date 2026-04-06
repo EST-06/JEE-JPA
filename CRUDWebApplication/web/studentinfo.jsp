@@ -16,7 +16,7 @@
         <h1>Student Information</h1>
         <form action="./StudentServlet" method="post">
 
-
+            
             <table>
                 <tr>
                     <td>Student ID</td>

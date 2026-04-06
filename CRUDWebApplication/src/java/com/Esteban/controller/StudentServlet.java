@@ -56,7 +56,7 @@ public class StudentServlet extends HttpServlet {
             student = studentDao.getStudent(studentId);
         }
         request.setAttribute("student", student);
-        request.setAttribute("allStudent", studentDao.getAllStudents());
+        request.setAttribute("allStudents", studentDao.getAllStudents());
         request.getRequestDispatcher("studentinfo.jsp").forward(request, response);
     }
 
