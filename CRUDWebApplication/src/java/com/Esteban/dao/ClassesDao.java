@@ -34,6 +34,11 @@ public class ClassesDao implements ClassesDaoLocal {
                 .setParameter("studentId", studentId)
                 .getResultList();
     }
+
+    @Override
+    public List<Classes> getClasses() {
+        return em.createQuery("SELECT c FROM Classes c", Classes.class).getResultList();
+    }
     
     
 }

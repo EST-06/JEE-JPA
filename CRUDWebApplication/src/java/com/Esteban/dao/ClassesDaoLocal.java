@@ -21,5 +21,6 @@ public interface ClassesDaoLocal {
     
     List<Classes> getStudentClasses(Integer studentId);
     
+    List<Classes> getClasses ();
     
 }

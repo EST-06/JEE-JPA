@@ -33,6 +33,23 @@
 
 <br>
 
+<h2>All Classes</h2>
+
+<table border="1">
+    <tr>
+        <th>Class ID</th>
+        <th>Student ID</th>
+        <th>Course ID</th>
+    </tr>
+
+    <c:forEach items="${allClasses}" var="c">
+        <tr>
+            <td>${c.classId}</td>
+            <td>${c.studentId}</td>
+            <td>${c.coursesId}</td>
+        </tr>
+    </c:forEach>
+</table>
 <!-- Formulario para buscar estudiantes de una clase -->
 <h2>Search Students in a Class</h2>
 <form action="./ProfessorServlet" method="post">
