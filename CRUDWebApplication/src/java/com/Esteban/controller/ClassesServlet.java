@@ -55,7 +55,7 @@ public class ClassesServlet extends HttpServlet {
         }
         
         request.setAttribute("allClasses", classesDao.getClasses());
-        request.getRequestDispatcher("professorInfo.jsp").forward(request, response);
+        request.getRequestDispatcher("/professorInfo.jsp").forward(request, response);
         
     }
     

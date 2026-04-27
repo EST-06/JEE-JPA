@@ -1,6 +1,7 @@
 package com.Esteban.dao;
 
 import com.Esteban.model.Classes;
+import com.Esteban.model.Courses;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -19,6 +20,8 @@ public class ClassesDao implements ClassesDaoLocal {
     @Override
     public void addStudentToClass(Classes classes) {
         em.persist(classes);
+        updateStudentCount(classes.getCoursesId());
+        
     }
 
     @Override
@@ -38,6 +41,19 @@ public class ClassesDao implements ClassesDaoLocal {
     @Override
     public List<Classes> getClasses() {
         return em.createQuery("SELECT c FROM Classes c", Classes.class).getResultList();
+    }
+    
+    private void updateStudentCount(int coursesId) {
+        Long count = (Long) em.createQuery(
+            "SELECT COUNT(c) FROM Classes c WHERE c.coursesId = :coursesId")
+            .setParameter("coursesId", coursesId)
+            .getSingleResult();
+
+        Courses course = em.find(Courses.class, coursesId);
+        if (course != null) {
+            course.setStudentsQuantity(count.intValue());
+            em.merge(course);
+        }
     }
     
     

@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Student Information</h1>
-        <form action="./StudentServlet" method="post">
+        <form action="${pageContext.request.contextPath}/StudentServlet" method="post">
 
             
             <table>
